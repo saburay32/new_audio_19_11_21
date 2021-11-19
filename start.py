@@ -1,33 +1,41 @@
 import pyaudio
 import wave
-
 '''
-
-     p = pyaudio.PyAudio()#detected audio device
-     for i in range(p.get_device_count()):
-         print(i,p.get_device_info_by_index(i)['name'])
-         
-    0 Microsoft Sound Mapper - Input
-    1 Microphone (Magic Sound)
-    2 Микрофон (Realtek High Definiti
-    3 Microsoft Sound Mapper - Output
-    4 Динамики (Realtek High Definiti
-    5 Первичный драйвер записи звука
-    6 Microphone (Magic Sound)
-    7 Микрофон (Realtek High Definition Audio)
-    8 Первичный звуковой драйвер
-    9 Динамики (Realtek High Definition Audio)
-    10 Динамики (Realtek High Definition Audio)
-    11 Microphone (Magic Sound)
-    12 Микрофон (Realtek High Definition Audio)
-    13 Микрофон (Realtek HD Audio Mic input)
-    14 Лин. вход (Realtek HD Audio Line input)
-    15 Стерео микшер (Realtek HD Audio Stereo input)
-    16 Speakers (Realtek HD Audio output)
-    17 Микрофон (Magic Sound)
+    Lessons tube:
+    https://youtu.be/UQFkU9Abzt8
+    https://www.youtube.com/watch?v=ergRggVCNK8
+    
+    Doc:
+    http://people.csail.mit.edu/hubert/pyaudio/docs/#pyaudio.PyAudio.open
+    http://people.csail.mit.edu/hubert/pyaudio/
 '''
 
 
+    #  p = pyaudio.PyAudio()#detected audio device
+    #  for i in range(p.get_device_count()):
+    #      print(i,p.get_device_info_by_index(i)['name'])
+    # Результат на рабочем компе:
+    #
+    # 0 Microsoft Sound Mapper - Input
+
+    # 1 Microphone (Magic Sound)<<<<--------с этого пишет,беру для дальнейшей индекс 1(stream--->input_device_index = 1)
+
+    # 2 Микрофон (Realtek High Definiti
+    # 3 Microsoft Sound Mapper - Output
+    # 4 Динамики (Realtek High Definiti
+    # 5 Первичный драйвер записи звука
+    # 6 Microphone (Magic Sound)
+    # 7 Микрофон (Realtek High Definition Audio)
+    # 8 Первичный звуковой драйвер
+    # 9 Динамики (Realtek High Definition Audio)
+    # 10 Динамики (Realtek High Definition Audio)
+    # 11 Microphone (Magic Sound)
+    # 12 Микрофон (Realtek High Definition Audio)
+    # 13 Микрофон (Realtek HD Audio Mic input)
+    # 14 Лин. вход (Realtek HD Audio Line input)
+    # 15 Стерео микшер (Realtek HD Audio Stereo input)
+    # 16 Speakers (Realtek HD Audio output)
+    # 17 Микрофон (Magic Sound)
 
 
 CHUNK = 1024
@@ -43,7 +51,7 @@ stream = p.open(format=FORMAT,
                 channels=CHANNELS,
                 rate=RATE,
                 input=True,
-                input_device_index = 1,
+                input_device_index = 1,#index mic after cycle for
                 frames_per_buffer=CHUNK)
 
 print("* recording")
