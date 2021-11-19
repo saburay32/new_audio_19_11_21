@@ -54,7 +54,7 @@ stream = p.open(format=FORMAT,
                 input_device_index = 1,#index mic after cycle for
                 frames_per_buffer=CHUNK)
 
-print("* recording")
+print("* запись")
 
 frames = []
 
@@ -62,7 +62,7 @@ for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
     data = stream.read(CHUNK)
     frames.append(data)
 
-print("* done recording")
+print("* запись окончена")
 
 stream.stop_stream()
 stream.close()
