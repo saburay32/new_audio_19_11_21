@@ -1,5 +1,7 @@
 import pyaudio
+import time
 import wave
+from tqdm import tqdm
 '''
     Lessons tube:
     https://youtu.be/UQFkU9Abzt8
@@ -58,7 +60,7 @@ print("* запись")
 
 frames = []
 
-for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+for i in tqdm(range(0, int(RATE / CHUNK * RECORD_SECONDS))):
     data = stream.read(CHUNK)
     frames.append(data)
 
@@ -74,3 +76,21 @@ wf.setsampwidth(p.get_sample_size(FORMAT))
 wf.setframerate(RATE)
 wf.writeframes(b''.join(frames))
 wf.close()
+
+
+def play_audio(wafe_path):
+    CHUNK = 1024
+    wf = wave.open(wafe_path,'rb')
+    p = pyaudio.PyAudio()
+
+    stream = wf.readframes(CHUNK)
+
+    datas = []
+    while len(data)>0:
+        data = wf.readframes(CHUNK)
+        datas.append(data)
+
+    for d in tqdm(datas):
+        stream.write(data)
+
+
