@@ -1,12 +1,12 @@
 import PySimpleGUI as sg
 
-sg.theme('DarkAmber')
+sg.theme('Reddit')
 
 layout = [[sg.Text('My next gui panel')],
-          [sg.Text('Enter this===>'),sg.InputText()],
+          [sg.Text('Enter ===>'),sg.InputText()],
           [sg.Button('OK'),sg.Button('Cancel')]]
 
-window = sg.Window('WindowTitle',layout)
+window = sg.Window('GuiPanel',layout)
 
 while True:
     event, values = window.read()
