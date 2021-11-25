@@ -2,6 +2,8 @@ import pyaudio
 import time
 import wave
 from tqdm import tqdm
+import sys
+
 '''
     Lessons tube:
     https://youtu.be/UQFkU9Abzt8
@@ -78,19 +80,28 @@ wf.writeframes(b''.join(frames))
 wf.close()
 
 
-def play_audio(wafe_path):
-    CHUNK = 1024
-    wf = wave.open(wafe_path,'rb')
-    p = pyaudio.PyAudio()
-
-    stream = wf.readframes(CHUNK)
-
-    datas = []
-    while len(data)>0:
-        data = wf.readframes(CHUNK)
-        datas.append(data)
-
-    for d in tqdm(datas):
-        stream.write(data)
+# if len(sys.argv) < 2:
+#     print("Plays a wave file.\n\nUsage: %s filename.wav" % sys.argv[0])
+#     sys.exit(-1)
+#
+# wf = wave.open('output.wav', 'rb')
+#
+# p = pyaudio.PyAudio()
+#
+# stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
+#                 channels=wf.getnchannels(),
+#                 rate=wf.getframerate(),
+#                 output=True)
+#
+# data = wf.readframes(CHUNK)
+#
+# while tqdm(len(data) >0) :
+#     stream.write(data)
+#     data = wf.readframes(CHUNK)
+#
+# stream.stop_stream()
+# stream.close()
+#
+# p.terminate()
 
 
