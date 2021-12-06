@@ -1,23 +1,25 @@
-from PyQt5 import uic, QtWidgets
 
-Form, _ = uic.loadUiType("First.ui")
-
-class Ui(QtWidgets.QDialog,Form):
-    def __init__(self):
-        super(Ui, self).__init__()
-        self.setupUi(self)
-        self.pushButton.clicked.connect(self.printButtonPressed)
-
-    def printButtonPressed(selfs):
-        print("pressed")
-
-if __name__ == '__main__':
-    import sys
-
-    app = QtWidgets.QApplication(sys.argv)
-    w = Ui()
-    w.show()
-    sys.exit(app.exec_())
+# from PyQt5 import uic, QtWidgets
+#
+# Form, _ = uic.loadUiType("First.ui")
+#
+# class Ui(QtWidgets.QDialog,Form):
+#     def __init__(self):
+#         super(Ui, self).__init__()
+#         self.setupUi(self)
+#         self.pushButton.clicked.connect(self.printButtonPressed)
+#
+#     def printButtonPressed(selfs):
+#         print("pressed")
+#
+# if __name__ == '__main__':
+#     import sys
+#
+#     app = QtWidgets.QApplication(sys.argv)
+#     w = Ui()
+#     w.show()
+#     sys.exit(app.exec_())
+#
 # app = QApplication([])
 # window = Window()
 # form = Form()
